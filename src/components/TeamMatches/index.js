@@ -12,7 +12,10 @@ class TeamMatches extends Component {
   }
 
   getTeamMatches = async () => {
-    const response = await fetch('https://apis.ccbp.in/ipl/KKR')
+    const {match} = this.props
+    const {params} = match
+    const {id} = params
+    const response = await fetch(`https://apis.ccbp.in/ipl/${id}`)
     const data = await response.json()
     console.log(data)
     const updatedMatchDetails = {
@@ -43,19 +46,23 @@ class TeamMatches extends Component {
   render() {
     const {teamMatchDetails, isLoading} = this.state
     const {teamBannerUrl, latestMatchDetails, recentMatches} = teamMatchDetails
+    console.log(this.props)
     return (
       <div className="match-details-container">
         {isLoading ? (
-          <div>
+          <div className="loader-container">
             <Loader type="Oval" color="#ffffff" height={50} width={50} />
           </div>
         ) : (
           <>
-            (
             <img className="team-players-img" src={teamBannerUrl} alt="" />
             <h1 className="latest-matches-heading">Latest Matches</h1>
             <LatestMatch latestMatchDetails={latestMatchDetails} />
-            <MatchCard recentMatches={recentMatches[0]} />} )
+            <div className="matchcard-container">
+              {recentMatches.map(eachMatch => (
+                <MatchCard match={eachMatch} key={eachMatch.id} />
+              ))}
+            </div>
           </>
         )}
       </div>

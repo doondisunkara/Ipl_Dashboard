@@ -3,12 +3,16 @@
   border: 0px solid;
   border-radius: 12px;
   padding: 20px 10px 20px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 .overview-container {
   border-bottom: 2px solid #4f5db0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 .overview-details {
   text-align: left;
