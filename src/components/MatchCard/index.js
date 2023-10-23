@@ -6,9 +6,13 @@ class MatchCard extends Component {
     const {match} = this.props
     const {competingTeam, competingTeamLogo, matchStatus, result} = match
     return (
-      <div className="match-card">
-        <img className="team-logo" src={competingTeamLogo} alt="" />
-        <h1 className="team-name">{competingTeam}</h1>
+      <li className="match-card">
+        <img
+          className="team-logo"
+          src={competingTeamLogo}
+          alt={`competing team ${competingTeam}`}
+        />
+        <p className="team-name">{competingTeam}</p>
         <p className="match-result">{result}</p>
         <p
           className={`match-status ${
@@ -17,7 +21,7 @@ class MatchCard extends Component {
         >
           {matchStatus}
         </p>
-      </div>
+      </li>
     )
   }
 }

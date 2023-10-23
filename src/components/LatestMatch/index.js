@@ -23,12 +23,16 @@ class LatestMatch extends Component {
       <div className="latest-matches-card">
         <div className="overview-container">
           <div className="overview-details">
-            <h1 className="heading">{competingTeam}</h1>
+            <p className="heading">{competingTeam}</p>
             <p className="heading">{date}</p>
             <p className="sub-heading">{venue}</p>
             <p className="sub-heading">{result}</p>
           </div>
-          <img className="team-logo" src={competingTeamLogo} alt="" />
+          <img
+            className="team-logo"
+            src={competingTeamLogo}
+            alt={`latest match ${competingTeam}`}
+          />
         </div>
         <div>
           <p className="category">First Innings</p>

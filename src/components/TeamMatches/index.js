@@ -50,19 +50,23 @@ class TeamMatches extends Component {
     return (
       <div className="match-details-container">
         {isLoading ? (
-          <div className="loader-container">
+          <div className="loader-container" testid="loader">
             <Loader type="Oval" color="#ffffff" height={50} width={50} />
           </div>
         ) : (
           <>
-            <img className="team-players-img" src={teamBannerUrl} alt="" />
+            <img
+              className="team-players-img"
+              src={teamBannerUrl}
+              alt="team banner"
+            />
             <h1 className="latest-matches-heading">Latest Matches</h1>
             <LatestMatch latestMatchDetails={latestMatchDetails} />
-            <div className="matchcard-container">
+            <ul className="matchcard-container">
               {recentMatches.map(eachMatch => (
                 <MatchCard match={eachMatch} key={eachMatch.id} />
               ))}
-            </div>
+            </ul>
           </>
         )}
       </div>
